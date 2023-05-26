@@ -5,12 +5,12 @@ const personSchema = new mongoose.Schema({
     LastName: String,
     name: String,
     userData: {
+        address: String,
+        birthDate: Date,
+        cpf: String,
         email: String,
         password: String,
-        address: String,
         phone: String,
-        cpf: String,
-        birthDate: String,
     },
     moneyData: {
         creditAmount: Number,

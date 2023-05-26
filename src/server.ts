@@ -1,6 +1,6 @@
 import express from 'express'
 import database from './database'
-import routesManager from './routesManager'
+import routesManager from './Routes/routesManager'
 
 const server = express()
 server.use(express.json())

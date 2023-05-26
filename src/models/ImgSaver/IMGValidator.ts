@@ -1,11 +1,11 @@
 import { validate as validate_class } from 'class-validator'
-import { Person } from './personTypes'
+import { IMG } from './IMGTypes'
 import { NextFunction, Request, Response } from 'express'
 
-class PersonValidator {
+class IMGValidator {
     static async validateType(req: Request, res: Response, next: NextFunction) {
-        const person = new Person(req.body)
-        const validation_result = await validate_class(person)
+        const img = new IMG(req.body)
+        const validation_result = await validate_class(img)
 
         if (validation_result.length > 0) {
             const filtered_errors = []
@@ -18,14 +18,14 @@ class PersonValidator {
             })
 
             res.status(400).json({
-                message: 'Invalid person data',
+                message: 'Invalid img data',
                 errors: filtered_errors,
             })
         } else {
-            req.body = person
+            req.body = img
             next()
         }
     }
 }
 
-export default PersonValidator
+export default IMGValidator
